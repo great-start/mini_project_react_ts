@@ -1,7 +1,8 @@
-import {axiosService} from "./axios.service";
+import {axiosPicService, axiosMovService} from "./axios.service";
 
-import {apiKey, urls} from "../constants";
+import {apiKey, picUrls, urls} from "../constants";
 
 export const moviesService = {
-    getPopular: () => axiosService.get(`${urls.moviePopular}?${apiKey}`).then(value => value.data),
+    getPopular: (page:number) => axiosMovService.get(`${urls.moviePopular}?${apiKey}&page=${page}`).then(value => value.data),
+    getPoster: (path: string) => axiosPicService.get(`${picUrls.w185}/${path}`).then(value => console.log(value.data)),
 }

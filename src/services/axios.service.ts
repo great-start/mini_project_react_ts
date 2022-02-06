@@ -1,6 +1,12 @@
 import axios from "axios";
 
-import {baseURL} from "../constants";
+import {baseURL, basePicUrl} from "../constants";
 
-export const axiosService = axios.create({ baseURL })
+export const axiosMovService = axios.create({
+    baseURL
+})
+
+export const axiosPicService = axios.create({
+    baseURL: basePicUrl
+})
 
