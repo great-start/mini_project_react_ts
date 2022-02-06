@@ -1,6 +1,14 @@
 import React, {FC} from 'react';
 
-export const MovieCard: FC = () => {
+import {IMovie} from "../../interfaces";
+
+interface IProps {
+    movie: IMovie;
+}
+
+export const MovieCard: FC<Partial<IProps>> = ({movie}) => {
+
+    console.log(movie);
 
     return (
         <div>
