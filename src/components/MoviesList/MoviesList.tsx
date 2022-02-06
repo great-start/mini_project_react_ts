@@ -7,7 +7,7 @@ import {IMovie} from "../../interfaces";
 
 export const MoviesList: FC = () => {
 
-    let [movies, setMovies] = useState<IMovie[]>([]);
+    let [movies, setMovies] = useState<Array<IMovie>>([]);
 
     useEffect(() => {
             moviesService.getPopular().then(value => setMovies(value.results));

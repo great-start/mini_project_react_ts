@@ -6,13 +6,12 @@ interface IProps {
     movie: IMovie;
 }
 
-export const MovieCard: FC<Partial<IProps>> = ({movie}) => {
+export const MovieCard: FC<IProps> = ({movie : {id}}) => {
 
-    console.log(movie);
 
     return (
         <div>
-
+            {id}
         </div>
     );
 };
