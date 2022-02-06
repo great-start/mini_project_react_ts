@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {FC} from 'react';
+import {Routes, Route} from "react-router-dom";
 
-const App = () => {
+
+import './App.module.css';
+import {Layout} from "./components";
+
+const App: FC = () => {
+
     return (
-        <div>
-          
-        </div>
+        <Routes>
+            <Route path={'/'} element={<Layout/>}/>
+        </Routes>
     );
 };
 
