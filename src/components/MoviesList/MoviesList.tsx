@@ -8,7 +8,8 @@ export const MoviesList: FC = () => {
     let [movies, setMovies] = useState(null);
 
     useEffect(() => {
-        console.log(moviesService.getPopular());;
+            const data = moviesService.getPopular();
+            console.log(data);
     },[])
 
     return (
