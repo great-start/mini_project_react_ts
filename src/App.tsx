@@ -12,6 +12,7 @@ const App: FC = () => {
             <Route path={'/'} element={<Layout/>}>
                 <Route path={'movies'} element={<MoviesList/>}/>
                 <Route path={'movies/:title'} element={<MovieInfo/>}/>
+                {/*<Route path={'genres'} element={}/>*/}
             </Route>
         </Routes>
     );

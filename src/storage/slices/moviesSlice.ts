@@ -6,6 +6,7 @@ import {moviesService} from "../../services";
 interface IMoviesList {
     page: number,
     movies: null | IMovie[],
+    movieInfo: null | IMovie;
     status: null | string;
     error_messages?: null | string;
 }
@@ -13,6 +14,7 @@ interface IMoviesList {
 const initialState: IMoviesList = {
     page: 1,
     movies: [],
+    movieInfo: null,
     status: null,
     error_messages: null,
 }
@@ -29,22 +31,23 @@ export const getPopularMovies = createAsyncThunk(
     }
 )
 
-
 const moviesSlice = createSlice({
     name: 'moviesSlice',
     initialState,
     reducers: {
         setPopularMovies: (state, action: PayloadAction<{ results: IMovie[], page: number }>) => {
             state.page = action.payload.page;
-            action.payload.results.forEach(movie => {
-                state.movies.push()
-            })
+            state.movies = action.payload.results;
         },
         nextPage: (state) => {
             state.page++;
         },
         previousPage: (state) => {
             state.page--;
+        },
+        movieInfo: (state, action:PayloadAction<{ movie:IMovie }>) => {
+            console.log(action.payload.movie);
+            state.movieInfo = action.payload.movie;
         }
     },
     extraReducers: (builder => {
@@ -57,5 +60,5 @@ const moviesSlice = createSlice({
     })
 });
 
-export const {setPopularMovies, nextPage, previousPage} = moviesSlice.actions;
+export const {setPopularMovies, nextPage, previousPage, movieInfo} = moviesSlice.actions;
 export const moviesReducer = moviesSlice.reducer;

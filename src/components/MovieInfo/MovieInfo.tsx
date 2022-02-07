@@ -1,17 +1,18 @@
 import React, {FC} from 'react';
-import {useLocation} from "react-router-dom";
-
 import {picUrl} from "../../constants";
 import {useAppSelector} from "../../hooks";
 
+
 export const MovieInfo: FC = () => {
 
-    const {state}:any = useLocation();
-    console.log(state)
+    const {movieInfo} = useAppSelector(state => state.moviesReducer);
+
+    if (!movieInfo) return null;
 
     return (
         <div>
-            {/*<img src={`${picUrl.w1280}/${state.backdrop_path}`} alt={}/>*/}
+            <img src={`${picUrl.w1280}/${movieInfo.backdrop_path}`} alt={movieInfo.title}/>
         </div>
     );
 };
+
