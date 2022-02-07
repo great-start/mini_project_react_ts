@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAction, createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IMovie} from "../../interfaces";
 import {moviesService} from "../../services/movies.service";
 
@@ -22,6 +22,7 @@ export const getPopularMovies = createAsyncThunk(
     }
 )
 
+
 const moviesSlice = createSlice({
     name: 'moviesSlice',
     initialState,
@@ -30,11 +31,11 @@ const moviesSlice = createSlice({
 
         }
     },
-    extraReducers: {
-        [getPopularMovies.pending]: (state, action) => {
+    extraReducers: (builder => {
+        builder.addCase(getPopularMovies.pending, (state, action) => {
 
-        }
-    }
+        })
+    })
 });
 
 export const {setPopularMovies} = moviesSlice.actions;
