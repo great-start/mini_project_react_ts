@@ -11,6 +11,5 @@ export const MovieCard: FC<{movie:IMovie}> = ({movie : {id,poster_path}}) => {
             <div>{id}</div>
             <img src={`${picUrl.w185}${poster_path}`} alt=""/>
         </div>
-
     );
 };

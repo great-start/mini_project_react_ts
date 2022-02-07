@@ -3,24 +3,25 @@ import React, {FC, useEffect} from 'react';
 import css from './MoviesList.module.css';
 import {MovieCard} from "../MovieCard/MovieCard";
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {getPopularMovies} from "../../storage";
+import {getPopularMovies, nextPage} from "../../storage";
 
 export const MoviesList: FC = () => {
 
-    const {movies} = useAppSelector(state => state.moviesReducer);
+    const {movies, page, error_messages} = useAppSelector(state => state.moviesReducer);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(getPopularMovies())
-    },[])
+        dispatch(getPopularMovies(page));
+    },[page])
 
     return (
         <>
             <div className={css.moviesList}>
-                {movies.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
+                {movies && movies.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
             </div>
-            <button>NEXT</button>
-            <p></p>
+            <button onClick={() => dispatch(nextPage())}>NEXT</button>
+            <p>{page}</p>
+            <p>{error_messages && error_messages}</p>
         </>
     );
 };

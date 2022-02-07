@@ -3,23 +3,26 @@ import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IMovie} from "../../interfaces";
 import {moviesService} from "../../services";
 
-interface IMoviesState {
-    movies: IMovie[]
+interface IMoviesList {
+    page: number,
+    movies: null | IMovie[],
+    error_messages?: null | string;
 }
 
-const initialState: IMoviesState = {
-    movies: [],
+const initialState: IMoviesList = {
+    page: 1,
+    movies: null,
+    error_messages: null,
 }
 
 export const getPopularMovies = createAsyncThunk(
     'moviesSlice/getPopularMovies',
-    async (_,{dispatch,rejectWithValue}) => {
+    async (page:number,{dispatch,rejectWithValue}) => {
         try {
-            const {results} = await moviesService.getPopular();
-            dispatch(setPopularMovies(results));
+            const {data} = await moviesService.getPopular(page);
+            dispatch(setPopularMovies(data));
         } catch (e) {
-            rejectWithValue((e as Error).message);
-            console.log((e as Error).message);
+            return rejectWithValue((e as Error).message);
         }
     }
 )
@@ -29,21 +32,25 @@ const moviesSlice = createSlice({
     name: 'moviesSlice',
     initialState,
     reducers: {
-        setPopularMovies: (state, action:PayloadAction<IMovie[]>) => {
-            console.log(action.payload);
-            state.movies = action.payload;
-        }
+        setPopularMovies: (state, action: PayloadAction<{ results: IMovie[], page: number }>) => {
+            state.page = action.payload.page;
+            state.movies = action.payload.results;
+        },
+        nextPage: ((state) => {
+            state.page++;
+        })
+
     },
     extraReducers: (builder => {
         builder.addCase(getPopularMovies.pending, (state, action) => {
             console.log(action.payload);
+            state.error_messages = 'loading';
         });
-        builder.addCase(getPopularMovies.rejected, (action:any) => {
-                console.log(action);
-            }
-        );
+        builder.addCase(getPopularMovies.rejected, (_,action) => {
+            console.log(action.payload);
+        });
     })
 });
 
-export const {setPopularMovies} = moviesSlice.actions;
+export const {setPopularMovies, nextPage} = moviesSlice.actions;
 export const moviesReducer = moviesSlice.reducer;
