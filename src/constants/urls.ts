@@ -6,4 +6,5 @@ export const urls = {
 
 export const picUrl = {
     w185: 'https://image.tmdb.org/t/p/w185',
+    w1280: 'https://image.tmdb.org/t/p/w1280'
 }

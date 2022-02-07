@@ -12,7 +12,7 @@ interface IMoviesList {
 
 const initialState: IMoviesList = {
     page: 1,
-    movies: null,
+    movies: [],
     status: null,
     error_messages: null,
 }
@@ -36,7 +36,9 @@ const moviesSlice = createSlice({
     reducers: {
         setPopularMovies: (state, action: PayloadAction<{ results: IMovie[], page: number }>) => {
             state.page = action.payload.page;
-            state.movies = action.payload.results;
+            action.payload.results.forEach(movie => {
+                state.movies.push()
+            })
         },
         nextPage: (state) => {
             state.page++;

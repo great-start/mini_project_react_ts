@@ -11,7 +11,7 @@ const App: FC = () => {
         <Routes>
             <Route path={'/'} element={<Layout/>}>
                 <Route path={'movies'} element={<MoviesList/>}/>
-                <Route path={'{title}'} element={<MovieInfo/>}/>
+                <Route path={'movies/:title'} element={<MovieInfo/>}/>
             </Route>
         </Routes>
     );
