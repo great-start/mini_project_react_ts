@@ -10,9 +10,8 @@ const App: FC = () => {
     return (
         <Routes>
             <Route path={'/'} element={<Layout/>}>
-                <Route path={'movies'} element={<MoviesList/>}>
-                    <Route path={'title'} element={<MovieInfo/>}/>
-                </Route>
+                <Route path={'movies'} element={<MoviesList/>}/>
+                <Route path={'{title}'} element={<MovieInfo/>}/>
             </Route>
         </Routes>
     );

@@ -43,8 +43,7 @@ const moviesSlice = createSlice({
         },
         previousPage: (state) => {
             state.page--;
-        },
-        movieInfo:
+        }
     },
     extraReducers: (builder => {
         builder.addCase(getPopularMovies.pending, (state, action) => {
