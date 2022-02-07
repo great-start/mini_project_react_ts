@@ -1,3 +1,16 @@
 .moviesList {
-    background: #ffc9c9;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    background: #f8f8ff;
+    gap: 30px;
 }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+

@@ -6,12 +6,14 @@ import {moviesService} from "../../services";
 interface IMoviesList {
     page: number,
     movies: null | IMovie[],
+    status: null | string;
     error_messages?: null | string;
 }
 
 const initialState: IMoviesList = {
     page: 1,
     movies: null,
+    status: null,
     error_messages: null,
 }
 
@@ -36,18 +38,17 @@ const moviesSlice = createSlice({
             state.page = action.payload.page;
             state.movies = action.payload.results;
         },
-        nextPage: ((state) => {
+        nextPage: (state) => {
             state.page++;
-        }),
-        previousPage: (state, action) => {
+        },
+        previousPage: (state) => {
             state.page--;
-        }
-
+        },
+        movieInfo:
     },
     extraReducers: (builder => {
         builder.addCase(getPopularMovies.pending, (state, action) => {
-            console.log(action.payload);
-            state.error_messages = 'loading';
+            state.status = 'pending';
         });
         builder.addCase(getPopularMovies.rejected, (_,action) => {
             console.log(action.payload);
@@ -55,5 +56,5 @@ const moviesSlice = createSlice({
     })
 });
 
-export const {setPopularMovies, nextPage} = moviesSlice.actions;
+export const {setPopularMovies, nextPage, previousPage} = moviesSlice.actions;
 export const moviesReducer = moviesSlice.reducer;

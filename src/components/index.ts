@@ -1,4 +1,5 @@
 export * from './Layout/Layout';
 export * from './Header/Header';
 export * from './MoviesList/MoviesList';
-export * from './MovieCard/MovieCard';
+export * from './Movie/Movie';
+export * from './MovieInfo/MovieInfo';

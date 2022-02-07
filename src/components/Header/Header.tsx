@@ -6,8 +6,9 @@ import {NavLink} from "react-router-dom";
 export const Header: FC = () => {
     return (
         <div className={css.header}>
-            HEADER
-            <NavLink to={'/movies'}>Movies</NavLink>
+            <div className={css.nav}>
+                <NavLink to={'/movies'}>Movies</NavLink>
+            </div>
         </div>
     );
 };

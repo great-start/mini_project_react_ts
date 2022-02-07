@@ -1,0 +1,7 @@
+.movie {
+    max-width: 185px;
+}
+
+.movie:hover{
+    background: lightblue;
+}
