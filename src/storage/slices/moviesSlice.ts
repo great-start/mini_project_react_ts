@@ -31,7 +31,7 @@ const moviesSlice = createSlice({
         }
     },
     extraReducers: {
-        [getPopularMovies.pending]: (state) => {
+        [getPopularMovies.pending]: (state, action) => {
 
         }
     }
