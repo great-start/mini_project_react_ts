@@ -21,6 +21,7 @@ export const MoviesList: FC = () => {
             </div>
             <button onClick={() => dispatch(nextPage())}>NEXT</button>
             <p>{page}</p>
+            <button onClick={() => dispatch(previousPage())} >PREVIOUS</button>
             <p>{error_messages && error_messages}</p>
         </>
     );

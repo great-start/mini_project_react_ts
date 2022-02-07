@@ -38,7 +38,10 @@ const moviesSlice = createSlice({
         },
         nextPage: ((state) => {
             state.page++;
-        })
+        }),
+        previousPage: (state, action) => {
+            state.page--;
+        }
 
     },
     extraReducers: (builder => {
