@@ -1,5 +1,4 @@
 import {axiosService} from "./axios.service";
-
 import {urls} from "../constants";
 import {IMoviesList} from "../interfaces";
 

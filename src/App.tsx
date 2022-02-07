@@ -3,7 +3,7 @@ import {Routes, Route} from "react-router-dom";
 
 
 import './App.css';
-import {Layout, MovieInfo, MoviesList} from "./components";
+import {GenreList, Layout, MovieInfo, MoviesList} from "./components";
 
 const App: FC = () => {
 
@@ -12,7 +12,7 @@ const App: FC = () => {
             <Route path={'/'} element={<Layout/>}>
                 <Route path={'movies'} element={<MoviesList/>}/>
                 <Route path={'movies/:title'} element={<MovieInfo/>}/>
-                {/*<Route path={'genres'} element={}/>*/}
+                <Route path={'genres/:genre'} element={<GenreList/>}/>
             </Route>
         </Routes>
     );

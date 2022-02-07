@@ -21,7 +21,7 @@ const initialState: IMoviesList = {
 
 export const getPopularMovies = createAsyncThunk(
     'moviesSlice/getPopularMovies',
-    async (page:number,{dispatch,rejectWithValue}) => {
+    async (page: number, {dispatch, rejectWithValue}) => {
         try {
             const {data} = await moviesService.getPopular(page);
             dispatch(setPopularMovies(data));
@@ -29,7 +29,7 @@ export const getPopularMovies = createAsyncThunk(
             return rejectWithValue((e as Error).message);
         }
     }
-)
+);
 
 const moviesSlice = createSlice({
     name: 'moviesSlice',

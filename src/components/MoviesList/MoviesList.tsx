@@ -7,7 +7,7 @@ import { Movie } from '../Movie/Movie';
 
 export const MoviesList: FC = () => {
 
-    const {movies, page, status, error_messages} = useAppSelector(state => state.moviesReducer);
+    const {movies, page, error_messages} = useAppSelector(state => state.moviesReducer);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -23,7 +23,6 @@ export const MoviesList: FC = () => {
                 <button onClick={() => dispatch(previousPage())} disabled={page === 1}>PREVIOUS</button>
                 <p>{page}</p>
                 <button onClick={() => dispatch(nextPage())}>NEXT</button>
-
             </div>
             <p>{error_messages && error_messages}</p>
         </>
