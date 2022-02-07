@@ -3,11 +3,8 @@ import React, {FC} from 'react';
 import {IMovie} from "../../interfaces";
 import {picUrl} from "../../constants";
 
-interface IProps {
-    movie: IMovie;
-}
 
-export const MovieCard: FC<IProps> = ({movie : {id,poster_path}}) => {
+export const MovieCard: FC<{movie:IMovie}> = ({movie : {id,poster_path}}) => {
 
     return (
         <div>

@@ -1,6 +1,7 @@
-import {createAction, createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+
 import {IMovie} from "../../interfaces";
-import {moviesService} from "../../services/movies.service";
+import {moviesService} from "../../services";
 
 interface IMoviesState {
     movies: IMovie[]
@@ -12,12 +13,13 @@ const initialState: IMoviesState = {
 
 export const getPopularMovies = createAsyncThunk(
     'moviesSlice/getPopularMovies',
-    async (page:number,{dispatch,rejectWithValue}) => {
+    async (_,{dispatch,rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getPopular(page);
-            dispatch(setPopularMovies(data.movies));
+            const {results} = await moviesService.getPopular();
+            dispatch(setPopularMovies(results));
         } catch (e) {
-            rejectWithValue(e);
+            rejectWithValue((e as Error).message);
+            console.log((e as Error).message);
         }
     }
 )
@@ -28,14 +30,20 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {
         setPopularMovies: (state, action:PayloadAction<IMovie[]>) => {
-
+            console.log(action.payload);
+            state.movies = action.payload;
         }
     },
     extraReducers: (builder => {
         builder.addCase(getPopularMovies.pending, (state, action) => {
-
-        })
+            console.log(action.payload);
+        });
+        builder.addCase(getPopularMovies.rejected, (action:any) => {
+                console.log(action);
+            }
+        );
     })
 });
 
 export const {setPopularMovies} = moviesSlice.actions;
+export const moviesReducer = moviesSlice.reducer;

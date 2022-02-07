@@ -1,30 +1,26 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect} from 'react';
 
 import css from './MoviesList.module.css';
-import {moviesService} from "../../services/movies.service";
 import {MovieCard} from "../MovieCard/MovieCard";
-import {IMovie} from "../../interfaces";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {getPopularMovies} from "../../storage";
 
 export const MoviesList: FC = () => {
 
-    const [movies, setMovies] = useState<IMovie[]>([]);
-    let [page, setPage] = useState<number>(1);
-    console.log(page)
+    const {movies} = useAppSelector(state => state.moviesReducer);
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        moviesService.getPopular(page).then(value => setMovies(value.results));
-    },[page])
-
-    console.log(movies);
-
+        dispatch(getPopularMovies())
+    },[])
 
     return (
         <>
             <div className={css.moviesList}>
-                {movies && movies.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
+                {movies.map(movie => <MovieCard key={movie.id} movie={movie}/>)}
             </div>
-            <button onClick={() => setPage(++page)}>NEXT</button>
-            <p>{page}</p>
+            <button>NEXT</button>
+            <p></p>
         </>
     );
 };
