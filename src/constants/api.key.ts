@@ -1,1 +1,2 @@
-export const apiKey = 'api_key=51706adb2287ca4d46e357b0ad661ab1';
+export const accessToken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MTcwNmFkYjIyODdjYTRkNDZlMzU3YjBhZDY2MWFiMSIsInN1YiI6IjYxZmU3MmI4NDM0OTRmMDA2OWUxZWRlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6fYQvIx6-0_EvJ1WGBGGLYzC9Saa02oJ8_ND49LUUKc';
+

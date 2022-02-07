@@ -1,12 +1,12 @@
 import axios from "axios";
 
-import {baseURL, basePicUrl} from "../constants";
+import {accessToken, baseURL} from "../constants";
 
 export const axiosMovService = axios.create({
-    baseURL
+    baseURL,
+    headers: {
+        Authorization: `Bearer ${accessToken}`
+    }
 })
 
-export const axiosPicService = axios.create({
-    baseURL: basePicUrl
-})
 

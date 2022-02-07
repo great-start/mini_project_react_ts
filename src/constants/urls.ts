@@ -1,10 +1,9 @@
 export const baseURL = 'https://api.themoviedb.org/3';
-export const basePicUrl = 'https://image.tmdb.org/t/p';
 
 export const urls = {
     moviePopular: '/movie/popular',
 }
 
-export const picUrls = {
-    w185: '/w185',
+export const picUrl = {
+    w185: 'https://image.tmdb.org/t/p/w185',
 }

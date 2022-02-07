@@ -13,7 +13,6 @@ export const MoviesList: FC = () => {
 
     useEffect(() => {
         moviesService.getPopular(page).then(value => setMovies(value.results));
-        moviesService.getPoster('/87BbV8DdgKzQKT1avH2VqW2r3dO.jpg').then(value => console.log(value))
     },[page])
 
     console.log(movies);
