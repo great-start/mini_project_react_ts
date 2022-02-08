@@ -1,7 +1,16 @@
 .movie {
     max-width: 185px;
+    transition: all 500ms ease;
 }
 
 .movie:hover{
-    background: lightblue;
+    opacity: 0.5;
+}
+
+.link {
+    color: black;
+}
+
+.link:hover {
+    color: #00478f;
 }

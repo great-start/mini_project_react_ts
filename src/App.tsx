@@ -13,6 +13,7 @@ const App: FC = () => {
                 <Route path={'/movies/:id'} element={<MovieInfo/>}/>
                 <Route path={'genres/:genre'} element={<MoviesList/>}/>
             </Route>
+            <Route path={'*'} element={<Layout/>}/>
         </Routes>
     );
 };
