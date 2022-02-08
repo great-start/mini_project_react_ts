@@ -2,7 +2,7 @@
     height: 100px;
     display: flex;
     padding: 0 50px;
-    background: lightblue;
+    box-shadow: #dddddd;
 }
 
 .nav {

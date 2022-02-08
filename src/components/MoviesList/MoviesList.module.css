@@ -1,16 +1,44 @@
-.moviesList {
+.moviesBox {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
-    padding: 20px;
-    background: #f8f8ff;
-    gap: 30px;
+    padding: 30px 50px 20px 50px;
+}
+
+.moviesBox > h2 {
+    color: #00478f;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
+    margin-top: 20px;
+    align-items: center;
 }
 
+.buttons > button {
+    height: 30px;
+    width: 100px;
+    background: #dddddd;
+    color: black;
+}
+
+.buttons > button:hover {
+    background: #b0d7e3;
+    color: black;
+    cursor: pointer;
+}
+
+.buttons > button[disabled]:hover {
+    background: #dddddd;
+    color: black;
+    cursor: inherit;
+}
+
+.moviesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
 

@@ -5,7 +5,7 @@ import {picUrl} from "../../constants";
 import {IMovie} from "../../interfaces";
 import css from './MovieInfo.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {showGenres} from "../../storage";
+import {setDefault, showGenres} from "../../storage";
 
 
 export const MovieInfo: FC = () => {
@@ -32,7 +32,9 @@ export const MovieInfo: FC = () => {
                     <h3>Overview: <span>{overview}</span></h3>
                     <h3>Genres:</h3>
                     <ul>
-                        {movieGenres && movieGenres.map(genre => <li className={css.list}><Link to={`/genres/${genre}`}>{genre}</Link></li>)}
+                        {movieGenres && movieGenres.map(genre => <li key={genre} className={css.list}>
+                            <Link to={`/genres/${genre}`} onClick={() => dispatch(setDefault())}>{genre}</Link>
+                        </li>)}
                     </ul>
                     <h3>Vote Average: <span>{vote_average}</span></h3>
                     <h3>Popularity: <span>{popularity}</span></h3>

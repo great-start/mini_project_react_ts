@@ -8,7 +8,7 @@ export const Layout: FC = () => {
 
     return (
         <>
-            <div>
+            <div className={css.headerWrap}>
                 <Header/>
             </div>
             <div className={css.main}>

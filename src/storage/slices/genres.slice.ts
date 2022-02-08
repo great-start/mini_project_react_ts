@@ -35,7 +35,6 @@ const genreSlice = createSlice({
         showGenres: (state, action:PayloadAction<string[]>) => {
             state.movieGenres = [];
             state.genres.forEach(genre => {
-                console.log(genre.id);
                 action.payload.forEach(id => {
                     if (genre.id.toString() === id.toString()) {
                         state.movieGenres.push(genre.name);

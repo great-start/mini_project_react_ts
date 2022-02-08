@@ -2,13 +2,15 @@ import React, {FC, useEffect} from 'react';
 
 import css from './MoviesList.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {getMovieByGenre, getPopularMovies, nextPage, previousPage, setDefault} from "../../storage";
+import {getMovieByGenre, getPopularMovies, nextPage, previousPage} from "../../storage";
 import { Movie } from '../Movie/Movie';
+import {useParams} from "react-router-dom";
 
 
 export const MoviesList: FC = () => {
 
     const {movies, page, error_messages, genreID} = useAppSelector(state => state.moviesReducer);
+    const params = useParams();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -21,12 +23,15 @@ export const MoviesList: FC = () => {
 
     return (
         <>
-            <div className={css.moviesList}>
-                {movies && movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
+            <div className={css.moviesBox}>
+                <h2>{params.genre && params.genre}</h2>
+                <div className={css.moviesList}>
+                    {movies && movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
+                </div>
             </div>
             <div className={css.buttons}>
                 <button onClick={() => dispatch(previousPage())} disabled={page === 1}>PREVIOUS</button>
-                <p>{page}</p>
+                <p>Page: {page}</p>
                 <button onClick={() => dispatch(nextPage())}>NEXT</button>
             </div>
             <p>{error_messages && error_messages}</p>

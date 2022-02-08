@@ -4,10 +4,6 @@ body {
     box-sizing: border-box;
 }
 
-div#root {
-    padding: 0 30px;
-}
-
 a {
     text-decoration: none;
 }
