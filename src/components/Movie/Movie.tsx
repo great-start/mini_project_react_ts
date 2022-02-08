@@ -10,7 +10,7 @@ import MovieRating from "../MovieRating/MovieRating";
 
 export const Movie: FC<{movie:IMovie}> = ({movie}) => {
 
-    const {id, poster_path, original_title, title, release_date} = movie;
+    const {id, poster_path, original_title, title} = movie;
 
     return (
         <div>
