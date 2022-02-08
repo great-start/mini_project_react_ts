@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, current, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 import {IMovie} from "../../interfaces";
 import {moviesService} from "../../services";
@@ -35,7 +35,6 @@ export const getMovieByGenre = createAsyncThunk(
     'genreSlice/getMovieByGenre',
     async ({genre, page}: { genre: number, page: number }, {dispatch, rejectWithValue}) => {
         try {
-            console.log(genre);
             const {data} = await moviesService.getMoviesByGenre(genre, page);
             dispatch(setMoviesList(data));
         } catch (e) {
@@ -60,17 +59,15 @@ const moviesSlice = createSlice({
         },
         setGenre: (state, action) => {
             state.genreID = action.payload;
-            console.log(current(state));
         },
         setDefault: (state) => {
             state.genreID = 0;
             state.page = 1;
-            console.log('default');
         }
     },
     extraReducers: (builder => {
-        builder.addCase(getPopularMovies.pending, (state, action) => {
-            state.status = 'pending';
+        builder.addCase(getMovieByGenre.rejected, (_, action) => {
+            console.log(action.payload);
         });
         builder.addCase(getPopularMovies.rejected, (_,action) => {
             console.log(action.payload);

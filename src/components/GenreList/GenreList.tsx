@@ -18,15 +18,14 @@ export const GenreList: FC = () => {
     function handler(genre: IGenre) {
         dispatch(setDefault());
         dispatch(setGenre(genre.id));
-        console.log(genre.id);
     }
 
     return (
         <div className={css.dropdown}>
             <button className={css.dropBtn}>Genres</button>
             <div className={css.dropdownContent}>
-                {genres.map
-                (genre => <Link to={`genres/${genre.name}`} onClick={() => handler(genre)} key={genre.id} state={genre}>{genre.name}</Link>
+                {genres.map(genre =>
+                    <Link to={`genres/${genre.name}`} onClick={() => handler(genre)} key={genre.id} state={genre}>{genre.name}</Link>
                 )}
             </div>
         </div>

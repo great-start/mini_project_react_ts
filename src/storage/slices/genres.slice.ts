@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+
 import {IGenres} from "../../interfaces";
 import {genresService} from "../../services";
 
@@ -26,7 +27,12 @@ const genreSlice = createSlice({
         setAllGenres: (state, action: PayloadAction<IGenres>) => {
             state.genres = action.payload.genres;
         }
-    }
+    },
+    extraReducers: (builder => {
+        builder.addCase(getAllGenres.rejected, (_,action) => {
+            console.log(action.payload);
+        });
+    })
 });
 
 

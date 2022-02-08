@@ -3,7 +3,6 @@ import {Routes, Route} from "react-router-dom";
 
 import './App.css';
 import {Layout, MovieInfo, MoviesList} from "./components";
-import {Gner} from "./components/gner/gner";
 
 const App: FC = () => {
 

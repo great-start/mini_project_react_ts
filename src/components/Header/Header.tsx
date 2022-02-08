@@ -13,8 +13,7 @@ export const Header: FC = () => {
     return (
         <div className={css.header}>
             <div className={css.nav}>
-                <NavLink to={'popular'} onClick={() => dispatch(setDefault())}>
-                    <button >Popular</button></NavLink>
+                <NavLink to={'popular'} onClick={() => dispatch(setDefault())}>Popular</NavLink>
                 <GenreList/>
             </div>
         </div>
