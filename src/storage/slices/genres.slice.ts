@@ -14,7 +14,7 @@ export const getAllGenres = createAsyncThunk(
             const {data} = await genresService.getAllGenres();
             dispatch(setAllGenres(data));
         } catch (e) {
-            rejectWithValue(e);
+            return rejectWithValue((e as Error).message);
         }
     }
 );

@@ -12,7 +12,7 @@ export const Movie: FC<{movie:IMovie}> = ({movie}) => {
     const {id, poster_path, original_title, title} = movie;
 
     return (
-        <Link to={`movies/${id}`} state={movie}>
+        <Link to={`/movies/${id}`} state={movie}>
             <div className={css.movie}>
                 <img src={`${picUrl.w185}${poster_path}`} alt={title}/>
                 <div>{original_title}</div>

@@ -2,18 +2,22 @@ import React, {FC, useEffect} from 'react';
 
 import css from './MoviesList.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {getPopularMovies, nextPage, previousPage} from "../../storage";
+import {getMovieByGenre, getPopularMovies, nextPage, previousPage, setDefault} from "../../storage";
 import { Movie } from '../Movie/Movie';
+
 
 export const MoviesList: FC = () => {
 
-    const {movies, page, error_messages} = useAppSelector(state => state.moviesReducer);
+    const {movies, page, error_messages, genreID} = useAppSelector(state => state.moviesReducer);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(getPopularMovies(page));
-    },[page])
-
+        if (!!genreID) {
+            dispatch(getMovieByGenre({genre:genreID, page: page}));
+        } else {
+            dispatch(getPopularMovies(page));
+        }
+    }, [page, genreID]);
 
     return (
         <>

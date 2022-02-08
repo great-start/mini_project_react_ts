@@ -1,7 +1,7 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, current, PayloadAction} from "@reduxjs/toolkit";
 
 import {IMovie} from "../../interfaces";
-import {genresService, moviesService} from "../../services";
+import {moviesService} from "../../services";
 
 interface IMoviesList {
     page: number,
@@ -33,16 +33,16 @@ export const getPopularMovies = createAsyncThunk(
 
 export const getMovieByGenre = createAsyncThunk(
     'genreSlice/getMovieByGenre',
-    async (genre:number,{dispatch,rejectWithValue}) => {
+    async ({genre, page}: { genre: number, page: number }, {dispatch, rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getMoviesByGenre(genre);
-            console.log(data);
+            console.log(genre);
+            const {data} = await moviesService.getMoviesByGenre(genre, page);
             dispatch(setMoviesList(data));
         } catch (e) {
             return rejectWithValue((e as Error).message);
         }
     }
-)
+);
 
 const moviesSlice = createSlice({
     name: 'moviesSlice',
@@ -57,6 +57,15 @@ const moviesSlice = createSlice({
         },
         previousPage: (state) => {
             state.page--;
+        },
+        setGenre: (state, action) => {
+            state.genreID = action.payload;
+            console.log(current(state));
+        },
+        setDefault: (state) => {
+            state.genreID = 0;
+            state.page = 1;
+            console.log('default');
         }
     },
     extraReducers: (builder => {
@@ -69,5 +78,5 @@ const moviesSlice = createSlice({
     })
 });
 
-export const {setMoviesList, nextPage, previousPage} = moviesSlice.actions;
+export const {setMoviesList, nextPage, previousPage, setGenre, setDefault} = moviesSlice.actions;
 export const moviesReducer = moviesSlice.reducer;

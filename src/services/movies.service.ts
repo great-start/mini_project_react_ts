@@ -4,5 +4,5 @@ import {IMoviesList} from "../interfaces";
 
 export const moviesService = {
     getPopular: (page:number) => axiosService.get<IMoviesList>(`${urls.moviePopular}?page=${page}`),
-    getMoviesByGenre: (genre:number) => axiosService.get<IMoviesList>(`${urls.byGenre}&with_genres=${genre}`)
+    getMoviesByGenre: (genre:number, page:number) => axiosService.get<IMoviesList>(`${urls.byGenre}?with_genres=${genre}&page=${page}`)
 }
