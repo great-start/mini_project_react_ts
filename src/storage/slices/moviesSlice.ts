@@ -23,6 +23,7 @@ export const getPopularMovies = createAsyncThunk(
     'moviesSlice/getPopularMovies',
     async (page: number, {dispatch, rejectWithValue}) => {
         try {
+            console.log(page);
             const {data} = await moviesService.getPopular(page);
             dispatch(setPopularMovies(data));
         } catch (e) {
@@ -44,6 +45,7 @@ const moviesSlice = createSlice({
         },
         previousPage: (state) => {
             state.page--;
+            getPopularMovies(state.page);
         },
         movieInfo: (state, action:PayloadAction<{ movie:IMovie }>) => {
             console.log(action.payload.movie);
