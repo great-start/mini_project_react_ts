@@ -1,12 +1,12 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 import {IMovie} from "../../interfaces";
-import {moviesService} from "../../services";
+import {genresService, moviesService} from "../../services";
 
 interface IMoviesList {
     page: number,
     movies: null | IMovie[],
-    movieInfo: null | IMovie;
+    genreID: number
     status: null | string;
     error_messages?: null | string;
 }
@@ -14,7 +14,7 @@ interface IMoviesList {
 const initialState: IMoviesList = {
     page: 1,
     movies: [],
-    movieInfo: null,
+    genreID: 0,
     status: null,
     error_messages: null,
 }
@@ -23,20 +23,32 @@ export const getPopularMovies = createAsyncThunk(
     'moviesSlice/getPopularMovies',
     async (page: number, {dispatch, rejectWithValue}) => {
         try {
-            console.log(page);
             const {data} = await moviesService.getPopular(page);
-            dispatch(setPopularMovies(data));
+            dispatch(setMoviesList(data));
         } catch (e) {
             return rejectWithValue((e as Error).message);
         }
     }
 );
 
+export const getMovieByGenre = createAsyncThunk(
+    'genreSlice/getMovieByGenre',
+    async (genre:number,{dispatch,rejectWithValue}) => {
+        try {
+            const {data} = await moviesService.getMoviesByGenre(genre);
+            console.log(data);
+            dispatch(setMoviesList(data));
+        } catch (e) {
+            return rejectWithValue((e as Error).message);
+        }
+    }
+)
+
 const moviesSlice = createSlice({
     name: 'moviesSlice',
     initialState,
     reducers: {
-        setPopularMovies: (state, action: PayloadAction<{ results: IMovie[], page: number }>) => {
+        setMoviesList: (state, action: PayloadAction<{ results: IMovie[], page: number }>) => {
             state.page = action.payload.page;
             state.movies = action.payload.results;
         },
@@ -45,11 +57,6 @@ const moviesSlice = createSlice({
         },
         previousPage: (state) => {
             state.page--;
-            getPopularMovies(state.page);
-        },
-        movieInfo: (state, action:PayloadAction<{ movie:IMovie }>) => {
-            console.log(action.payload.movie);
-            state.movieInfo = action.payload.movie;
         }
     },
     extraReducers: (builder => {
@@ -62,5 +69,5 @@ const moviesSlice = createSlice({
     })
 });
 
-export const {setPopularMovies, nextPage, previousPage, movieInfo} = moviesSlice.actions;
+export const {setMoviesList, nextPage, previousPage} = moviesSlice.actions;
 export const moviesReducer = moviesSlice.reducer;

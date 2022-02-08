@@ -18,7 +18,7 @@ export const GenreList: FC = () => {
         <div className={css.dropdown}>
             <button className={css.dropBtn}>Genres</button>
             <div className={css.dropdownContent}>
-                {genres.map(genre => <Link to={`genres/${genre.name}`} key={genre.id}>{genre.name}</Link>)}
+                {genres.map(genre => <Link to={`genres/${genre.name}`} key={genre.id} state={genre.id}>{genre.name}</Link>)}
             </div>
         </div>
     );

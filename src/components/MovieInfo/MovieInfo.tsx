@@ -1,17 +1,19 @@
 import React, {FC} from 'react';
+import {useLocation} from "react-router-dom";
+
 import {picUrl} from "../../constants";
-import {useAppSelector} from "../../hooks";
+import {IMovie} from "../../interfaces";
 
 
 export const MovieInfo: FC = () => {
 
-    const {movieInfo} = useAppSelector(state => state.moviesReducer);
-
-    if (!movieInfo) return null;
+    const location = useLocation();
+    const state = location.state as IMovie;
+    console.log(state);
 
     return (
         <div>
-            <img src={`${picUrl.w1280}/${movieInfo.backdrop_path}`} alt={movieInfo.title}/>
+            <img src={`${picUrl.w1280}/${state.backdrop_path}`} alt={state.title}/>
         </div>
     );
 };

@@ -12,9 +12,8 @@ export const MoviesList: FC = () => {
 
     useEffect(() => {
         dispatch(getPopularMovies(page));
-    },[])
+    },[page])
 
-    console.log('render');
 
     return (
         <>
@@ -22,9 +21,9 @@ export const MoviesList: FC = () => {
                 {movies && movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
             </div>
             <div className={css.buttons}>
-                <button onClick={() => dispatch(getPopularMovies(page + 1))} disabled={page === 1}>PREVIOUS</button>
+                <button onClick={() => dispatch(previousPage())} disabled={page === 1}>PREVIOUS</button>
                 <p>{page}</p>
-                <button onClick={() => dispatch(getPopularMovies(page - 1))}>NEXT</button>
+                <button onClick={() => dispatch(nextPage())}>NEXT</button>
             </div>
             <p>{error_messages && error_messages}</p>
         </>

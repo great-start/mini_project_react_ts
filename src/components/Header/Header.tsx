@@ -9,7 +9,7 @@ export const Header: FC = () => {
     return (
         <div className={css.header}>
             <div className={css.nav}>
-                <NavLink to={'/movies'}>Popular</NavLink>
+                <NavLink to={'popular'}>Popular</NavLink>
                 <GenreList/>
             </div>
         </div>

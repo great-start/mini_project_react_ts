@@ -2,7 +2,8 @@ export const baseURL = 'https://api.themoviedb.org/3';
 
 export const urls = {
     moviePopular: '/movie/popular',
-    allGenres: '/genre/movie/list'
+    allGenres: '/genre/movie/list',
+    byGenre: 'discover/movie'
 }
 
 export const picUrl = {
