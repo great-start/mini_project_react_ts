@@ -12,3 +12,23 @@
     display: flex;
     column-gap: 50px;
 }
+
+.description > div > h3 > span {
+    font-size: 14px;
+    color: darkblue;
+}
+
+.description > div > h3 {
+    font-size: 18px;
+}
+
+.list {
+    list-style: none;
+    color: #7d39c2;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.list a:hover {
+    color: red;
+}

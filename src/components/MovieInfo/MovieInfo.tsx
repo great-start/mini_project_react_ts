@@ -14,7 +14,7 @@ export const MovieInfo: FC = () => {
     const dispatch = useAppDispatch();
     const {movieGenres} = useAppSelector(state => state.genreReducer);
     const state = location.state as IMovie;
-    const {popularity,overview,title,original_language,release_date,genre_ids,vote_average,original_title} = state;
+    const {popularity, overview, title, original_language, release_date, genre_ids, vote_average, original_title} = state;
 
     useEffect(() => {
             dispatch(showGenres(genre_ids))
@@ -26,16 +26,16 @@ export const MovieInfo: FC = () => {
             <div className={css.description}>
                 <img src={`${picUrl.w500}/${state.poster_path}`} alt={state.title}/>
                 <div>
-                    <h3>Release date: {release_date}</h3>
-                    <h3>Original language: {original_language}</h3>
-                    <h3>Original title: {original_title}</h3>
-                    <h3>Overview: {overview}</h3>
+                    <h3>Release date: <span>{release_date}</span></h3>
+                    <h3>Original language: <span>{original_language}</span></h3>
+                    <h3>Original title: <span>{original_title}</span></h3>
+                    <h3>Overview: <span>{overview}</span></h3>
                     <h3>Genres:</h3>
                     <ul>
-                        {movieGenres && movieGenres.map(genre => <li><Link to={`/genres/${genre}`}>{genre}</Link></li>)}
+                        {movieGenres && movieGenres.map(genre => <li className={css.list}><Link to={`/genres/${genre}`}>{genre}</Link></li>)}
                     </ul>
-                    <h3>Vote Average: {vote_average}</h3>
-                    <h3>Popularity: {popularity}</h3>
+                    <h3>Vote Average: <span>{vote_average}</span></h3>
+                    <h3>Popularity: <span>{popularity}</span></h3>
                 </div>
             </div>
         </div>

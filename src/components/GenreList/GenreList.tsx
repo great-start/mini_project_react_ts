@@ -10,7 +10,6 @@ export const GenreList: FC = () => {
 
     const dispatch = useAppDispatch();
     const {genres} = useAppSelector(state => state.genreReducer);
-    console.log(genres);
 
     useEffect( () => {
         dispatch(getAllGenres());
