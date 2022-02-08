@@ -1,8 +1,17 @@
-.header {
+.header_day {
     height: 100px;
     display: flex;
-    padding: 0 50px;
+    padding: 0 100px;
     box-shadow: #dddddd;
+    transition: all 2000ms ease;
+}
+
+.header_night {
+    height: 100px;
+    display: flex;
+    padding: 0 100px;
+    box-shadow: #080211;
+    transition: all 2000ms ease;
 }
 
 .nav {

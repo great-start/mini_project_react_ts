@@ -1,0 +1,30 @@
+.switcher .day {
+    border: none;
+    background: #353542;
+    border-radius: 50px;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    color: #dddddd;
+    transition: all 2000ms ease;
+}
+
+.switcher .night {
+    border: none;
+    background: #b3b3ee;
+    border-radius: 50px;
+    width: 100px;
+    height: 40px;
+    font-size: 16px;
+    color: #353542;
+    transition: all 2000ms ease;
+}
+
+.switcher {
+    display: flex;
+    margin: auto;
+}
+
+.switcher > button {
+
+}

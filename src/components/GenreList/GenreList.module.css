@@ -9,6 +9,7 @@
     position: relative;
     display: inline-block;
     background: lightblue;
+    margin-left: 50px;
 }
 
 .dropdownContent {
