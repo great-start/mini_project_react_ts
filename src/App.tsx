@@ -3,6 +3,7 @@ import {Routes, Route} from "react-router-dom";
 
 import './App.css';
 import {Layout, MovieInfo, MoviesList} from "./components";
+import MovieRating from "./components/MovieRating/MovieRating";
 
 const App: FC = () => {
 

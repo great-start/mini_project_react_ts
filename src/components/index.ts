@@ -4,3 +4,4 @@ export * from './MoviesList/MoviesList';
 export * from './Movie/Movie';
 export * from './MovieInfo/MovieInfo';
 export * from './GenreList/GenreList';
+export * from './MovieRating/MovieRating';

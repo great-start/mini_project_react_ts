@@ -4,19 +4,23 @@ import {IMovie} from "../../interfaces";
 import {picUrl} from "../../constants";
 import css from './Movie.module.css';
 import {Link} from "react-router-dom";
+import MovieRating from "../MovieRating/MovieRating";
 
 
 
 export const Movie: FC<{movie:IMovie}> = ({movie}) => {
 
-    const {id, poster_path, original_title, title} = movie;
+    const {id, poster_path, original_title, title, release_date} = movie;
 
     return (
-        <Link to={`/movies/${id}`} state={movie}>
-            <div className={css.movie}>
-                <img src={`${picUrl.w185}${poster_path}`} alt={title}/>
-                <div>{original_title}</div>
-            </div>
-        </Link>
-    )
+        <div>
+            <Link to={`/movies/${id}`} state={movie}>
+                <div className={css.movie}>
+                    <img src={`${picUrl.w185}${poster_path}`} alt={title}/>
+                    <div>{original_title}</div>
+                </div>
+            </Link>
+            <MovieRating/>
+        </div>
+    );
 };
