@@ -1,12 +1,12 @@
 import React, {FC, useEffect} from 'react';
 
 import {Link} from "react-router-dom";
-import css from './GenreList.module.css';
+import css from './NavGenreList.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {getAllGenres, setDefault, setGenre} from "../../storage";
 import {IGenre} from "../../interfaces";
 
-export const GenreList: FC = () => {
+export const NavGenreList: FC = () => {
 
     const dispatch = useAppDispatch();
     const {genres} = useAppSelector(state => state.genreReducer);

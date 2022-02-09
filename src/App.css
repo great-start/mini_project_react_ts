@@ -2,8 +2,20 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Ubuntu, serif;
 }
 
 a {
     text-decoration: none;
+}
+
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    /* отображаем курсор в виде руки при наведении; некоторые
+    считают, что необходимо оставлять стрелочный вид для кнопок */
+    cursor: pointer;
 }

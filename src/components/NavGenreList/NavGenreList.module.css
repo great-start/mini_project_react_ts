@@ -1,14 +1,14 @@
 .dropBtn {
-    color: dodgerblue;
-    padding: 16px;
-    font-size: 16px;
+    color: #090956;
+    font-size: 22px;
+    font-weight: bold;
     border: none;
+    background: none;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
-    background: lightblue;
     margin-left: 50px;
 }
 
@@ -37,5 +37,5 @@
 }
 
 .dropdown:hover .dropBtn {
-    background-color: #3e8e41;
+    color: #3e8e41;
 }
