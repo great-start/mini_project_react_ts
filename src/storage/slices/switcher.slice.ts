@@ -7,7 +7,7 @@ interface ISwitcher {
 }
 
 const initialState:ISwitcher = {
-    switcher: false,
+    switcher: true,
     message: 'Day Mode',
 }
 
