@@ -1,9 +1,17 @@
-.main {
+.main_day {
     display: flex;
     flex-direction: column;
     padding: 0 50px;
     margin-top: 5px;
     background: #e7e7e7;
+}
+
+.main_night {
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    margin-top: 5px;
+    background: #3c3f41;
 }
 
 .headerWrap_day {

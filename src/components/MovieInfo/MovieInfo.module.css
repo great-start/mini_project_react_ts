@@ -10,27 +10,67 @@
     transition: all 1000ms ease;
 
 }
+
+.title_night {
+    color: #dddddd;
+}
 .description {
     display: flex;
     column-gap: 50px;
 }
 
-.description > div > h3 > span {
-    font-size: 14px;
+.descDay {
+    font-size: 18px;
+    color: #353542;
+}
+
+.descDay > h3 > span {
+    font-size: 16px;
     color: darkblue;
 }
 
-.description > div > h3 {
+.descNight {
     font-size: 18px;
+    color: #dddddd;
+}
+
+.descNight > h3 > span {
+    font-size: 16px;
+    color: #c1e1ff;
 }
 
 .list {
     list-style: none;
-    color: #7d39c2;
+    text-decoration:underline;
     font-size: 18px;
     margin: 5px;
 }
 
+.list a {
+    color: #0d3650;
+}
+
+.listNight {
+    list-style: none;
+    text-decoration:underline;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.listNight a {
+    color: #9d9dc9;
+    list-style: none;
+    text-decoration:underline;
+    font-size: 18px;
+    margin: 5px;
+}
+
+.listNight a:hover {
+    color: red;
+    text-decoration: none;
+}
+
 .list a:hover {
     color: red;
+    text-decoration: none;
 }

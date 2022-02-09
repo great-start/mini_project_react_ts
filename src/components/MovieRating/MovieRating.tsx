@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Rating} from 'react-simple-star-rating';
 
-export default function MovieRating() {
+export function MovieRating() {
 
     const [rating, setRating] = useState(50) // initial rating value
 

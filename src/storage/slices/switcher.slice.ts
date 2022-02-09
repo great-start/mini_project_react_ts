@@ -1,13 +1,13 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 
 interface ISwitcher {
-    status: boolean,
+    switcher: boolean,
     message: string;
 }
 
 const initialState:ISwitcher = {
-    status: false,
+    switcher: false,
     message: 'Day Mode',
 }
 
@@ -16,11 +16,11 @@ const switcherSlice = createSlice({
     initialState,
     reducers: {
         changeMode: (state) => {
-            if (!state.status) {
-                state.status = true;
+            if (!state.switcher) {
+                state.switcher = true;
                 state.message = 'Night Mode';
             } else {
-                state.status = false;
+                state.switcher = false;
                 state.message = 'Day Mode';
             }
         }

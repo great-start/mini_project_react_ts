@@ -7,11 +7,11 @@ import {changeMode} from "../../storage";
 export default function DayNightSwitcher () {
 
     const dispatch = useAppDispatch();
-    const {message, status} = useAppSelector(state => state.switcherReducer);
+    const {message, switcher} = useAppSelector(state => state.switcherReducer);
 
     return (
         <div className={css.switcher}>
-            <button onClick={() => dispatch(changeMode())} className={status ? css.day : css.night}>{message}</button>
+            <button onClick={() => dispatch(changeMode())} className={switcher ? css.day : css.night}>{message}</button>
         </div>
     );
 }

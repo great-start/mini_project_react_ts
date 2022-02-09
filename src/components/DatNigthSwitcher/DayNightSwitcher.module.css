@@ -22,9 +22,9 @@
 
 .switcher {
     display: flex;
-    margin: auto;
 }
 
 .switcher > button {
-
+    margin: auto;
+    cursor: pointer;
 }

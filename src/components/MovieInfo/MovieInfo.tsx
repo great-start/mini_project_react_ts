@@ -13,6 +13,7 @@ export const MovieInfo: FC = () => {
     const location = useLocation();
     const dispatch = useAppDispatch();
     const {movieGenres} = useAppSelector(state => state.genreReducer);
+    const {switcher} = useAppSelector(state => state.switcherReducer);
     const state = location.state as IMovie;
     const {popularity, overview, title, original_language, release_date, genre_ids, vote_average, original_title} = state;
 
@@ -22,17 +23,17 @@ export const MovieInfo: FC = () => {
 
     return (
         <div className={css.movInfoBox}>
-            <h2>{title}</h2>
+            <h2 className={switcher ? '' : css.title_night}>{title}</h2>
             <div className={css.description}>
                 <img src={`${picUrl.w500}/${state.poster_path}`} alt={state.title}/>
-                <div>
+                <div className={switcher? css.descDay : css.descNight}>
                     <h3>Release date: <span>{release_date}</span></h3>
                     <h3>Original language: <span>{original_language}</span></h3>
                     <h3>Original title: <span>{original_title}</span></h3>
                     <h3>Overview: <span>{overview}</span></h3>
                     <h3>Genres:</h3>
                     <ul>
-                        {movieGenres && movieGenres.map(genre => <li key={genre} className={css.list}>
+                        {movieGenres && movieGenres.map(genre => <li key={genre} className={switcher ? css.list : css.listNight}>
                             <Link to={`/genres/${genre}`} onClick={() => dispatch(setDefault())}>{genre}</Link>
                         </li>)}
                     </ul>

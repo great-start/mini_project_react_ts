@@ -7,14 +7,14 @@ import {useAppSelector} from "../../hooks";
 
 export const Layout: FC = () => {
 
-    const {status} = useAppSelector(state => state.switcherReducer);
+    const {switcher} = useAppSelector(state => state.switcherReducer);
 
     return (
         <>
-            <div className={status ? css.headerWrap_day : css.headerWrap_night}>
+            <div className={switcher ? css.headerWrap_day : css.headerWrap_night}>
                 <Header/>
             </div>
-            <div className={css.main}>
+            <div className={switcher ? css.main_day : css.main_night}>
                 <Outlet/>
             </div>
         </>

@@ -5,8 +5,14 @@
     padding: 30px 50px 20px 50px;
 }
 
-.moviesBox > h2 {
+.t_day {
     color: #00478f;
+    transition: all 1500ms ease;
+}
+
+.t_night {
+    color: #dddddd;
+    transition: all 1500ms ease;
 }
 
 .buttons {

@@ -1,17 +1,19 @@
 .header_day {
     height: 100px;
     display: flex;
+    justify-content: space-between;
     padding: 0 100px;
     box-shadow: #dddddd;
-    transition: all 2000ms ease;
+    transition: all 1000ms ease;
 }
 
 .header_night {
     height: 100px;
     display: flex;
+    justify-content: space-between;
     padding: 0 100px;
     box-shadow: #080211;
-    transition: all 2000ms ease;
+    transition: all 1000ms ease;
 }
 
 .nav {
@@ -20,11 +22,13 @@
 
 .nav > a {
     text-decoration: none;
-    font-size: 20px;
-    color: dodgerblue;
+    font-size: 22px;
+    font-weight: bold;
+    color: #090956;
+    transition: all 500ms ease;
 }
 
 .nav > a:hover{
-    color: darkblue;
+    color: #9d9dc9;
 }
 

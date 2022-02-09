@@ -10,6 +10,7 @@ import {useParams} from "react-router-dom";
 export const MoviesList: FC = () => {
 
     const {movies, page, error_messages, genreID} = useAppSelector(state => state.moviesReducer);
+    const {switcher} = useAppSelector(state => state.switcherReducer);
     const params = useParams();
     const dispatch = useAppDispatch();
 
@@ -24,7 +25,7 @@ export const MoviesList: FC = () => {
     return (
         <>
             <div className={css.moviesBox}>
-                <h2>{params.genre && params.genre}</h2>
+                <h2 className={switcher ? css.t_day : css.t_night}>{params.genre && params.genre}</h2>
                 <div className={css.moviesList}>
                     {movies && movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
                 </div>
