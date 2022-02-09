@@ -48,7 +48,6 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {
         setMoviesList: (state, action: PayloadAction<{ results: IMovie[], page: number }>) => {
-            state.status = true;
             state.page = action.payload.page;
             state.movies = action.payload.results;
         },
@@ -59,11 +58,11 @@ const moviesSlice = createSlice({
             state.page--;
         },
         setGenre: (state, action) => {
+            state.page = 1;
             state.genreID = action.payload;
         },
         setDefault: (state) => {
             state.page = 1;
-            state.status = false;
             state.genreID = 0;
         }
     },

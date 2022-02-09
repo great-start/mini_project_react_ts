@@ -2,14 +2,14 @@ import React, {FC, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {getMovieByGenre, getPopularMovies, nextPage, previousPage} from "../../storage";
+import {getMovieByGenre, getPopularMovies, nextPage, previousPage, setDefault} from "../../storage";
 import {Movie} from '../Movie/Movie';
 import css from './MoviesList.module.css';
 
 
 export const MoviesList: FC = () => {
 
-    const {movies, page, error_messages, genreID, status} = useAppSelector(state => state.moviesReducer);
+    const {movies, page, error_messages, genreID} = useAppSelector(state => state.moviesReducer);
     const {switcher} = useAppSelector(state => state.switcherReducer);
     const params = useParams();
     const dispatch = useAppDispatch();
@@ -22,8 +22,7 @@ export const MoviesList: FC = () => {
         }
     }, [page, genreID]);
 
-    if (!status) return null;
-
+    console.log('render');
     return (
         <>
             <div className={css.moviesBox}>

@@ -6,3 +6,4 @@ export * from './MovieInfo/MovieInfo';
 export * from './NavGenreList/NavGenreList';
 export * from './MovieRating/MovieRating';
 export * from './DatNigthSwitcher/DayNightSwitcher'
+export * from './Footer/Footer';

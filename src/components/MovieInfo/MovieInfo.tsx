@@ -2,10 +2,10 @@ import React, {FC, useEffect} from 'react';
 import {Link, useLocation} from "react-router-dom";
 
 import {picUrl} from "../../constants";
-import {IGenre, IMovie} from "../../interfaces";
+import {IMovie} from "../../interfaces";
 import css from './MovieInfo.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {setDefault, setGenre, showGenres} from "../../storage";
+import {setGenre, showGenres} from "../../storage";
 
 
 export const MovieInfo: FC = () => {
@@ -21,11 +21,6 @@ export const MovieInfo: FC = () => {
             dispatch(showGenres(genre_ids))
     }, []);
 
-    function handler(genre: IGenre) {
-        dispatch(setDefault());
-        dispatch(setGenre(genre.id));
-    }
-
     return (
         <div className={css.movInfoBox}>
             <h2 className={switcher ? '' : css.title_night}>{title}</h2>
@@ -40,7 +35,7 @@ export const MovieInfo: FC = () => {
                     <ul>
                         {movieGenres && movieGenres.map(genre =>
                             <li key={genre.id} className={switcher ? css.list : css.listNight}>
-                                <Link to={`/genres/${genre.name}`} onClick={() => handler(genre)}>{genre.name}</Link>
+                                <Link to={`/genres/${genre.name}`} onClick={() => dispatch(setGenre(genre.id))}>{genre.name}</Link>
                             </li>)}
                     </ul>
                     <h3>Vote Average: <span>{vote_average}</span></h3>

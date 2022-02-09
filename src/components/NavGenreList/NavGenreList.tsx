@@ -3,8 +3,8 @@ import React, {FC, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import css from './NavGenreList.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {getAllGenres, setDefault, setGenre} from "../../storage";
-import {IGenre} from "../../interfaces";
+import {getAllGenres, setGenre} from "../../storage";
+
 
 export const NavGenreList: FC = () => {
 
@@ -16,17 +16,13 @@ export const NavGenreList: FC = () => {
         dispatch(getAllGenres());
     },[])
 
-    function handler(genre: IGenre) {
-        dispatch(setDefault());
-        dispatch(setGenre(genre.id));
-    }
 
     return (
         <div className={css.dropdown}>
             <button className={switcher ? css.dropBtn : `${css.dropBtn} ${css.dropBtnNight}`}>Genres</button>
             <div className={css.dropdownContent}>
                 {genres.map(genre =>
-                    <Link to={`genres/${genre.name}`} onClick={() => handler(genre)} key={genre.id}>{genre.name}</Link>
+                    <Link to={`genres/${genre.name}`} onClick={() => dispatch(setGenre(genre.id))} key={genre.id}>{genre.name}</Link>
                 )}
             </div>
         </div>

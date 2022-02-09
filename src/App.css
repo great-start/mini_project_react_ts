@@ -3,6 +3,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: Ubuntu, serif;
+    height: 100vh;
 }
 
 a {
@@ -16,4 +17,10 @@ button {
     color: inherit;
     background-color: transparent;
     cursor: pointer;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }

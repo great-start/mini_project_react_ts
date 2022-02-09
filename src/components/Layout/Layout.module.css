@@ -1,8 +1,13 @@
+.mainWrap {
+    flex: 1 0 auto;
+}
+
 .main_day {
     display: flex;
     flex-direction: column;
     padding: 0 50px;
     margin-top: 5px;
+    min-height: 70vh;
 }
 
 .main_night {
