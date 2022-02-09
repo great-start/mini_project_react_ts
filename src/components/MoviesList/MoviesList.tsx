@@ -1,26 +1,28 @@
 import React, {FC, useEffect} from 'react';
+import {useParams} from "react-router-dom";
 
-import css from './MoviesList.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {getMovieByGenre, getPopularMovies, nextPage, previousPage} from "../../storage";
-import { Movie } from '../Movie/Movie';
-import {useParams} from "react-router-dom";
+import {Movie} from '../Movie/Movie';
+import css from './MoviesList.module.css';
 
 
 export const MoviesList: FC = () => {
 
-    const {movies, page, error_messages, genreID} = useAppSelector(state => state.moviesReducer);
+    const {movies, page, error_messages, genreID, status} = useAppSelector(state => state.moviesReducer);
     const {switcher} = useAppSelector(state => state.switcherReducer);
     const params = useParams();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         if (!!genreID) {
-            dispatch(getMovieByGenre({genre:genreID, page: page}));
+            dispatch(getMovieByGenre({genre: genreID, page: page}));
         } else {
             dispatch(getPopularMovies(page));
         }
     }, [page, genreID]);
+
+    if (!status) return null;
 
     return (
         <>

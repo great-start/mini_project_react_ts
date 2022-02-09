@@ -5,7 +5,7 @@ import {genresService} from "../../services";
 
 interface IGenreState {
     genres: IGenre[],
-    movieGenres: string[];
+    movieGenres: IGenre[];
 }
 
 const initialState: IGenreState = {
@@ -37,7 +37,7 @@ const genreSlice = createSlice({
             state.genres.forEach(genre => {
                 action.payload.forEach(id => {
                     if (genre.id.toString() === id.toString()) {
-                        state.movieGenres.push(genre.name);
+                        state.movieGenres.push({id:genre.id,name:genre.name});
                     }
                 })
             });

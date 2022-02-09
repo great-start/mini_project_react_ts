@@ -2,10 +2,10 @@ import React, {FC, useEffect} from 'react';
 import {Link, useLocation} from "react-router-dom";
 
 import {picUrl} from "../../constants";
-import {IMovie} from "../../interfaces";
+import {IGenre, IMovie} from "../../interfaces";
 import css from './MovieInfo.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {setDefault, showGenres} from "../../storage";
+import {setDefault, setGenre, showGenres} from "../../storage";
 
 
 export const MovieInfo: FC = () => {
@@ -21,21 +21,27 @@ export const MovieInfo: FC = () => {
             dispatch(showGenres(genre_ids))
     }, []);
 
+    function handler(genre: IGenre) {
+        dispatch(setDefault());
+        dispatch(setGenre(genre.id));
+    }
+
     return (
         <div className={css.movInfoBox}>
             <h2 className={switcher ? '' : css.title_night}>{title}</h2>
             <div className={css.description}>
                 <img src={`${picUrl.w500}/${state.poster_path}`} alt={state.title}/>
-                <div className={switcher? css.descDay : css.descNight}>
+                <div className={switcher ? css.descDay : css.descNight}>
                     <h3>Release date: <span>{release_date}</span></h3>
                     <h3>Original language: <span>{original_language}</span></h3>
                     <h3>Original title: <span>{original_title}</span></h3>
                     <h3>Overview: <span>{overview}</span></h3>
                     <h3>Genres:</h3>
                     <ul>
-                        {movieGenres && movieGenres.map(genre => <li key={genre} className={switcher ? css.list : css.listNight}>
-                            <Link to={`/genres/${genre}`} onClick={() => dispatch(setDefault())}>{genre}</Link>
-                        </li>)}
+                        {movieGenres && movieGenres.map(genre =>
+                            <li key={genre.id} className={switcher ? css.list : css.listNight}>
+                                <Link to={`/genres/${genre.name}`} onClick={() => handler(genre)}>{genre.name}</Link>
+                            </li>)}
                     </ul>
                     <h3>Vote Average: <span>{vote_average}</span></h3>
                     <h3>Popularity: <span>{popularity}</span></h3>
