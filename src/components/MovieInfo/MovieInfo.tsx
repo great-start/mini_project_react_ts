@@ -1,25 +1,19 @@
-import React, {FC, useEffect} from 'react';
-import {Link, useLocation} from "react-router-dom";
+import React, {FC} from 'react';
+import {useLocation} from "react-router-dom";
 
 import {picUrl} from "../../constants";
 import {IMovie} from "../../interfaces";
+import {useAppSelector} from "../../hooks";
+import {MovieInfoGenres} from "./MovieInfoGenres";
 import css from './MovieInfo.module.css';
-import {useAppDispatch, useAppSelector} from "../../hooks";
-import {setGenre, showGenres} from "../../storage";
 
 
 export const MovieInfo: FC = () => {
 
     const location = useLocation();
-    const dispatch = useAppDispatch();
-    const {movieGenres} = useAppSelector(state => state.genreReducer);
-    const {switcher} = useAppSelector(state => state.switcherReducer);
     const state = location.state as IMovie;
     const {popularity, overview, title, original_language, release_date, genre_ids, vote_average, original_title} = state;
-
-    useEffect(() => {
-            dispatch(showGenres(genre_ids))
-    }, []);
+    const {switcher} = useAppSelector(state => state.switcherReducer);
 
     return (
         <div className={css.movInfoBox}>
@@ -32,12 +26,7 @@ export const MovieInfo: FC = () => {
                     <h3>Original title: <span>{original_title}</span></h3>
                     <h3>Overview: <span>{overview}</span></h3>
                     <h3>Genres:</h3>
-                    <ul>
-                        {movieGenres && movieGenres.map(genre =>
-                            <li key={genre.id} className={switcher ? css.list : css.listNight}>
-                                <Link to={`/genres/${genre.name}`} onClick={() => dispatch(setGenre(genre.id))}>{genre.name}</Link>
-                            </li>)}
-                    </ul>
+                    <MovieInfoGenres movGenres={genre_ids}/>
                     <h3>Vote Average: <span>{vote_average}</span></h3>
                     <h3>Popularity: <span>{popularity}</span></h3>
                 </div>

@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {IMovie} from "../../interfaces";
 import {picUrl} from "../../constants";
 import {useAppSelector} from "../../hooks";
-import { MovieRating } from '../MovieRating/MovieRating';
+import { MovieRating } from '..';
 import css from './Movie.module.css';
 
 

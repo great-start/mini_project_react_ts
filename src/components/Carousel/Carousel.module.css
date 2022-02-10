@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 30px 50px 20px 50px;
+    padding: 30px 50px 50px 50px;
     column-gap: 20px;
 }
 
@@ -21,10 +21,19 @@
     transition: opacity 2s;
 }
 
+.item img:hover {
+    box-shadow: none;
+}
+
 .item img {
     display: flex;
     width: 320px;
     height: 542px;
+    box-shadow: 5px 10px 20px #8c8c8c;
+}
+
+.item img a:hover {
+    opacity: 4;
 }
 
 .hide {
@@ -32,4 +41,14 @@
     width: 375px;
     height: 562px;
     opacity: 0;
+}
+
+.t_day {
+    color: #00478f;
+    transition: all 1500ms ease;
+}
+
+.t_night {
+    color: #dddddd;
+    transition: all 1500ms ease;
 }

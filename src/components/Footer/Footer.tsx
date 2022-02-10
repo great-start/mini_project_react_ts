@@ -6,7 +6,7 @@ export const Footer:FC = () => {
 
     return (
         <div className={css.footer}>
-            Footer
+
         </div>
     );
 };

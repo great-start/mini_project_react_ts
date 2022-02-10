@@ -1,10 +1,9 @@
 import React, {FC} from 'react';
 import {Outlet} from "react-router-dom";
 
-import {Header} from "../Header/Header";
-import css from './Home.module.css';
 import {useAppSelector} from "../../hooks";
-import {Footer} from "../Footer/Footer";
+import {Footer, Header} from '..';
+import css from './Home.module.css';
 
 export const Home: FC = () => {
 

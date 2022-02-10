@@ -15,9 +15,9 @@ const initialState: IGenreState = {
 
 export const getAllGenres = createAsyncThunk(
     'genreSlice/getAllGenres',
-    async (_, {dispatch, rejectWithValue}) => {
+    async (_: void, {dispatch, rejectWithValue}) => {
         try {
-            const {data :{genres}} = await genresService.getAllGenres();
+            const {data: {genres}} = await genresService.getAllGenres();
             dispatch(setAllGenres({genres}));
         } catch (e) {
             return rejectWithValue((e as Error).message);

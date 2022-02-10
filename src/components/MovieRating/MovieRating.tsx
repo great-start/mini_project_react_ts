@@ -3,7 +3,7 @@ import {Rating} from 'react-simple-star-rating';
 
 export function MovieRating() {
 
-    const [rating, setRating] = useState(50)
+    const [rating, setRating] = useState(50);
 
     const handleRating = (rate:any) => {
         setRating(rate)

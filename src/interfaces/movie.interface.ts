@@ -27,7 +27,7 @@ export interface IUpcomingMovies{
         maximum: string,
         minimum: string
     },
-    page: number,
+    page?: number,
     results: IMovie[],
     total_pages?: number,
     total_results?: number

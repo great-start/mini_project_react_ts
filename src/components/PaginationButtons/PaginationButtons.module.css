@@ -1,0 +1,9 @@
+.t_day {
+    color: #00478f;
+    transition: all 1500ms ease;
+}
+
+.t_night {
+    color: #dddddd;
+    transition: all 1500ms ease;
+}

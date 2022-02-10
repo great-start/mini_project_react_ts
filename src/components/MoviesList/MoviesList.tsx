@@ -1,11 +1,10 @@
 import React, {FC, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 
+import {Movie, PaginationButtons} from '..';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {getMovieByGenre, getPopularMovies, nextPage, previousPage} from "../../storage";
-import {Movie} from '../Movie/Movie';
+import {getMovieByGenre, getPopularMovies} from "../../storage";
 import css from './MoviesList.module.css';
-import {PaginationButtons} from "../PaginationButtons/PaginationButtons";
 
 
 export const MoviesList: FC = () => {

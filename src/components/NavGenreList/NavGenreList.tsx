@@ -1,9 +1,9 @@
 import React, {FC, useEffect} from 'react';
-
 import {Link} from "react-router-dom";
-import css from './NavGenreList.module.css';
+
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {getAllGenres, setGenre} from "../../storage";
+import css from './NavGenreList.module.css';
 
 
 export const NavGenreList: FC = () => {

@@ -17,10 +17,10 @@ const switcherSlice = createSlice({
     reducers: {
         changeMode: (state) => {
             if (!state.switcher) {
-                state.switcher = true;
+                state.switcher = !state.switcher;
                 state.message = 'Night Mode';
             } else {
-                state.switcher = false;
+                state.switcher = !state.switcher;
                 state.message = 'Day Mode';
             }
         }

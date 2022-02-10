@@ -1,12 +1,11 @@
 import React, {FC} from 'react';
 import {NavLink} from "react-router-dom";
 
-import css from './Header.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {setDefault} from "../../storage";
-import DayNightSwitcher from "../DatNigthSwitcher/DayNightSwitcher";
-import {NavGenreList} from '../NavGenreList/NavGenreList';
-import { setDefaultUpcoming } from '../../storage/slices/upcoming.slice';
+import {setDefaultUpcoming} from '../../storage';
+import {DayNightSwitcher, NavGenreList} from '..';
+import css from './Header.module.css';
 
 export const Header: FC = () => {
 
