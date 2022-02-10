@@ -1,3 +1,8 @@
+.movieWrap {
+    width: 185px;
+    height: 351px;
+}
+
 .movie {
     max-width: 185px;
     transition: all 500ms ease;

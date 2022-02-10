@@ -5,7 +5,7 @@ import {moviesService} from "../../services";
 
 interface IMoviesList {
     page: number,
-    movies: null | IMovie[],
+    movies: IMovie[],
     genreID: number
     status: boolean;
     error_messages?: null | string;

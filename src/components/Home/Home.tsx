@@ -12,7 +12,7 @@ export const Home: FC = () => {
 
     return (
         <>
-            <div className={css.mainWrap}>
+            <div className={switcher ? css.mainWrapDay : css.mainWrapNight}>
                 <div className={switcher ? css.headerWrap_day : css.headerWrap_night}>
                     <Header/>
                 </div>

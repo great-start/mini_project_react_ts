@@ -14,7 +14,7 @@ export const Movie: FC<{ movie: IMovie }> = ({movie}) => {
     const {id, poster_path, original_title, title} = movie;
 
     return (
-        <div>
+        <div className={css.movieWrap}>
             <Link to={`/movies/${id}`} state={movie} className={css.link}>
                 <div className={css.movie}>
                     <img src={`${picUrl.w185}${poster_path}`} alt={title}/>

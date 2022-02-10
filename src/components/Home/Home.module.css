@@ -1,5 +1,10 @@
-.mainWrap {
+.mainWrapDay {
     flex: 1 0 auto;
+}
+
+.mainWrapNight {
+    flex: 1 0 auto;
+    background: #3c3f41;
 }
 
 .main_day {
