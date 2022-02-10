@@ -58,8 +58,9 @@ const moviesSlice = createSlice({
             state.page--;
         },
         setGenre: (state, action) => {
-            state.page = 1;
+            state.movies = [];
             state.genreID = action.payload;
+            state.page = 1;
         },
         setDefault: (state) => {
             state.page = 1;

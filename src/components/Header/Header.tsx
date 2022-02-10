@@ -5,7 +5,7 @@ import css from './Header.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {setDefault} from "../../storage";
 import DayNightSwitcher from "../DatNigthSwitcher/DayNightSwitcher";
-import { NavGenreList } from '../NavGenreList/NavGenreList';
+import {NavGenreList} from '../NavGenreList/NavGenreList';
 
 export const Header: FC = () => {
 

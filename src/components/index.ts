@@ -1,4 +1,4 @@
-export * from './Layout/Layout';
+export * from './Home/Home';
 export * from './Header/Header';
 export * from './MoviesList/MoviesList';
 export * from './Movie/Movie';

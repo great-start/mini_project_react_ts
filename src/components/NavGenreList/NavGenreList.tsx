@@ -16,7 +16,6 @@ export const NavGenreList: FC = () => {
         dispatch(getAllGenres());
     },[])
 
-
     return (
         <div className={css.dropdown}>
             <button className={switcher ? css.dropBtn : `${css.dropBtn} ${css.dropBtnNight}`}>Genres</button>

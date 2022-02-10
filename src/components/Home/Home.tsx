@@ -2,11 +2,11 @@ import React, {FC} from 'react';
 import {Outlet} from "react-router-dom";
 
 import {Header} from "../Header/Header";
-import css from './Layout.module.css';
+import css from './Home.module.css';
 import {useAppSelector} from "../../hooks";
 import {Footer} from "../Footer/Footer";
 
-export const Layout: FC = () => {
+export const Home: FC = () => {
 
     const {switcher} = useAppSelector(state => state.switcherReducer);
 

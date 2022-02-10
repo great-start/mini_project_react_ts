@@ -3,14 +3,14 @@ import {Rating} from 'react-simple-star-rating';
 
 export function MovieRating() {
 
-    const [rating, setRating] = useState(50) // initial rating value
+    const [rating, setRating] = useState(50)
 
     const handleRating = (rate:any) => {
         setRating(rate)
     }
 
     return (
-        <div >
+        <div>
             <Rating
                 onClick={handleRating}
                 ratingValue = {rating}
@@ -19,7 +19,7 @@ export function MovieRating() {
                 transition
                 fillColor='orange'
                 emptyColor='gray'
-                className='foo' // Will remove the inline style if applied
+                className='foo'
             />
         </div>
     );
