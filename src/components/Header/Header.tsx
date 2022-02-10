@@ -15,6 +15,9 @@ export const Header: FC = () => {
     return (
         <div className={switcher ? css.header_day : css.header_night}>
             <div className={switcher ? css.nav : `${css.nav} ${css.navNight}`}>
+                <NavLink to={'/'}>
+                    Home
+                </NavLink>
                 <NavLink to={'popular'} onClick={() => dispatch(setDefault())}>
                     Popular
                 </NavLink>

@@ -5,7 +5,7 @@ import {accessToken, baseURL} from "../constants";
 export const axiosService = axios.create({
     baseURL,
     headers: {
-        Authorization: `Bearer ${accessToken}`
+        Authorization: `Bearer ${accessToken}`,
     }
 })
 

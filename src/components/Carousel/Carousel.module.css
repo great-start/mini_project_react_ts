@@ -1,0 +1,30 @@
+.items {
+    width: inherit;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 50px 20px 50px;
+    column-gap: 20px;
+}
+
+.item {
+    display: block;
+    width: 375px;
+    height: 562px;
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+.item img {
+    display: block;
+    width: 375px;
+    height: 562px;
+}
+
+.hide {
+    display: block;
+    width: 375px;
+    height: 562px;
+    opacity: 0;
+}

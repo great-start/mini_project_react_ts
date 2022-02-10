@@ -7,7 +7,6 @@ interface IMoviesList {
     page: number,
     movies: IMovie[],
     genreID: number
-    status: boolean;
     error_messages?: null | string;
 }
 
@@ -15,7 +14,6 @@ const initialState: IMoviesList = {
     page: 1,
     movies: [],
     genreID: 0,
-    status: false,
     error_messages: null,
 }
 
@@ -57,7 +55,7 @@ const moviesSlice = createSlice({
         previousPage: (state) => {
             state.page--;
         },
-        setGenre: (state, action) => {
+        setGenre: (state, action:PayloadAction<number>) => {
             state.movies = [];
             state.genreID = action.payload;
             state.page = 1;

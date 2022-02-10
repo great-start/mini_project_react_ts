@@ -8,3 +8,4 @@ export * from './MovieRating/MovieRating';
 export * from './DatNigthSwitcher/DayNightSwitcher'
 export * from './Footer/Footer';
 export * from './PaginationButtons/PaginationButtons';
+export * from './Carousel/Carousel';

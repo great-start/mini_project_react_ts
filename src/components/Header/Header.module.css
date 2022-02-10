@@ -13,7 +13,7 @@
     justify-content: space-between;
     padding: 0 100px;
     box-shadow: #080211;
-    transition: all 1000ms ease;
+    transition: all 2s ease;
 }
 
 .nav {
@@ -28,8 +28,20 @@
     transition: all 500ms ease;
 }
 
+.nav :first-child{
+    margin-right: 50px;
+}
+
+.nav a[class=active] {
+    color: #c0c0c0;
+}
+
 .navNight > a {
     color: #dddddd;
+}
+
+.navNight > a[class=active] {
+    color: #415f7e;
 }
 
 .nav > a:hover{
