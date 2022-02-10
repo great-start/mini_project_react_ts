@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, current, PayloadAction} from "@reduxjs/toolkit";
 import {IMovie, IUpcomingMovies} from "../../interfaces";
 import {moviesService} from "../../services";
 
@@ -6,7 +6,7 @@ import {moviesService} from "../../services";
 interface IUpcomingMovBox {
     movies: IUpcomingMovies;
     upcomingMovieID: number,
-    showMovie: IMovie,
+    showMovie: IMovie[],
     style: boolean;
 }
 
@@ -17,10 +17,7 @@ const initialState: IUpcomingMovBox = {
     },
     upcomingMovieID: 0,
     style: false,
-    showMovie: {
-        genre_ids: [],
-        title: ''
-    }
+    showMovie: []
 };
 
 export const getUpcomingMovies = createAsyncThunk(
@@ -41,22 +38,29 @@ const upcomingMovies = createSlice({
     reducers: {
         setUpcomingMov: (state, action:PayloadAction<IUpcomingMovies>) => {
             state.movies.results = action.payload.results;
-            state.showMovie = state.movies.results[0];
+            for (let i = 0; i <= 3; i++) {
+                state.showMovie.push(state.movies.results[i]);
+            }
         },
         showMovieByID: (state) => {
             state.style = false;
-            if (state.upcomingMovieID === 19) {
+            state.upcomingMovieID = state.upcomingMovieID + state.showMovie.length;
+            state.showMovie = [];
+            if (state.upcomingMovieID > 19) {
                 state.upcomingMovieID = 0;
-            } else {
-                state.upcomingMovieID++;
             }
-            state.showMovie = state.movies.results[state.upcomingMovieID];
+            for (let i = 0; i <= 3; i++) {
+                state.showMovie.push(state.movies.results[state.upcomingMovieID + i]);
+            }
         },
         setVisible: (state) => {
             state.style = true;
+        },
+        setDefaultUpcoming: (state) => {
+            state.showMovie = [];
         }
     }
 });
 
-export const {setUpcomingMov, showMovieByID, setVisible} = upcomingMovies.actions;
+export const {setUpcomingMov, showMovieByID, setVisible, setDefaultUpcoming} = upcomingMovies.actions;
 export const upcomingReducer = upcomingMovies.reducer;

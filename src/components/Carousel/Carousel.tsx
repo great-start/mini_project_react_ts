@@ -8,10 +8,11 @@ import {picUrl} from "../../constants";
 
 export const Carousel = () => {
 
-    const {movies: {page}, showMovie, style} = useAppSelector(state => state.upcomingReducer);
+    const {movies: {page, results}, showMovie, style, upcomingMovieID} = useAppSelector(state => state.upcomingReducer);
     const dispatch = useDispatch();
 
-    const {poster_path, original_title} = showMovie;
+    console.log(results);
+    console.log(showMovie);
 
     useEffect(() => {
         dispatch(getUpcomingMovies(page));
@@ -28,9 +29,12 @@ export const Carousel = () => {
     return (
         <div className={css.items}>
             <h2>Upcoming Films: </h2>
-            <div className={style ? css.item : css.hide} onLoad={() => changeStyle()}>
-                <img src={`${picUrl.w780}${poster_path}`} alt={original_title}/>
-            </div>
+            <div className={css.itemsBox}>
+                {showMovie && showMovie.map(movie =>
+                    <div className={style ? css.item : css.hide} onLoad={() => changeStyle()}>
+                        <img src={`${picUrl.w780}${movie.poster_path}`} alt={movie.original_title}/>
+                    </div>
+                )}</div>
         </div>
     );
 };

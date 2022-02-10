@@ -8,18 +8,23 @@
     column-gap: 20px;
 }
 
+.itemsBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .item {
     display: block;
-    width: 375px;
-    height: 562px;
+    flex: 1;
     opacity: 1;
     transition: opacity 2s;
 }
 
 .item img {
-    display: block;
-    width: 375px;
-    height: 562px;
+    display: flex;
+    width: 320px;
+    height: 542px;
 }
 
 .hide {

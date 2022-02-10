@@ -6,6 +6,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {setDefault} from "../../storage";
 import DayNightSwitcher from "../DatNigthSwitcher/DayNightSwitcher";
 import {NavGenreList} from '../NavGenreList/NavGenreList';
+import { setDefaultUpcoming } from '../../storage/slices/upcoming.slice';
 
 export const Header: FC = () => {
 
@@ -15,7 +16,7 @@ export const Header: FC = () => {
     return (
         <div className={switcher ? css.header_day : css.header_night}>
             <div className={switcher ? css.nav : `${css.nav} ${css.navNight}`}>
-                <NavLink to={'/'}>
+                <NavLink to={'/'} onClick={() => dispatch(setDefaultUpcoming())}>
                     Home
                 </NavLink>
                 <NavLink to={'popular'} onClick={() => dispatch(setDefault())}>
