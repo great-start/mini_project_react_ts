@@ -13,8 +13,8 @@ const App: FC = () => {
                 <Route path={'popular'} element={<MoviesList/>}/>
                 <Route path={'/movies/:id'} element={<MovieInfo/>}/>
                 <Route path={'genres/:genre'} element={<MoviesList/>}/>
+                <Route path={'*'} element={<Navigate to={'/'} replace={true}/>}/>
             </Route>
-            <Route path={'*'} element={<Navigate to={'/'} replace={true}/>}/>
         </Routes>
     );
 };
