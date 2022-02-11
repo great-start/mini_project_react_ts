@@ -11,19 +11,22 @@ export const Header: FC = () => {
 
     const dispatch = useAppDispatch();
     const {switcher} = useAppSelector(state => state.switcherReducer);
+    const {logStatus} = useAppSelector(state => state.authReducer);
 
     return (
         <div className={switcher ? css.header_day : css.header_night}>
             <div className={switcher ? css.nav : `${css.nav} ${css.navNight}`}>
-                <NavLink to={'/'} onClick={() => dispatch(setDefaultUpcoming())}>
-                    Home
-                </NavLink>
-                <NavLink to={'popular'} onClick={() => dispatch(setDefault())}>
-                    Popular
-                </NavLink>
-                <NavGenreList/>
+                {logStatus && <>
+                    <NavLink to={'/'} onClick={() => dispatch(setDefaultUpcoming())}>
+                        Home
+                    </NavLink>
+                    <NavLink to={'popular'} onClick={() => dispatch(setDefault())}>
+                        Popular
+                    </NavLink>
+                    <NavGenreList/>
+                </>}
             </div>
-            <DayNightSwitcher/>
+            {logStatus && <DayNightSwitcher/>}
         </div>
     );
 }

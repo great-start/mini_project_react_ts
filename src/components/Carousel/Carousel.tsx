@@ -19,7 +19,7 @@ export const Carousel: FC = () => {
 
     useInterval(() => {
         dispatch(showMovieByID())
-    }, 3500);
+    }, 4000);
 
     function changeStyle() {
         dispatch(setVisible())
@@ -30,7 +30,7 @@ export const Carousel: FC = () => {
             <h2 className={switcher ? css.t_day : css.t_night}>Upcoming Films: </h2>
             <div className={css.itemsBox}>
                 {showMovie.map(movie =>
-                    <div className={style ? css.item : css.hide} onLoad={() => changeStyle()}>
+                    <div key={movie.id} className={style ? css.item : css.hide} onLoad={() => changeStyle()}>
                         <Link to={`/movies/${movie.id}`} state={movie}>
                             <img src={`${picUrl.w780}${movie.poster_path}`} alt={movie.original_title}/>
                         </Link>

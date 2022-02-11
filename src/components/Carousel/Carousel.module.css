@@ -12,12 +12,15 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    min-height: 542px;
 }
 
 .item {
     display: block;
     flex: 1;
     opacity: 1;
+    min-width: 320px;
+    min-height: 542px;
     transition: opacity 2s;
 }
 
@@ -26,7 +29,7 @@
 }
 
 .item img {
-    display: flex;
+    display: block;
     width: 320px;
     height: 542px;
     box-shadow: 5px 10px 20px #8c8c8c;
@@ -38,8 +41,9 @@
 
 .hide {
     display: block;
-    width: 375px;
-    height: 562px;
+    flex: 1;
+    min-width: 320px;
+    min-height: 542px;
     opacity: 0;
 }
 

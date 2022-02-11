@@ -4,6 +4,7 @@ import {Outlet} from "react-router-dom";
 import {useAppSelector} from "../../hooks";
 import {Footer, Header} from '..';
 import css from './Home.module.css';
+import { SimpleAuthentication } from '../../hoc';
 
 export const Home: FC = () => {
 
@@ -16,7 +17,9 @@ export const Home: FC = () => {
                     <Header/>
                 </div>
                 <div className={switcher ? css.main_day : css.main_night}>
-                    <Outlet/>
+                    <SimpleAuthentication>
+                        <Outlet/>
+                    </SimpleAuthentication>
                 </div>
             </div>
             <Footer/>
