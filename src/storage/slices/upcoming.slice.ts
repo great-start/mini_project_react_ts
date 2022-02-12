@@ -42,7 +42,7 @@ const upcomingMovies = createSlice({
                 state.showMovie.push(state.movies.results[i]);
             }
         },
-        showMovieByID: (state) => {
+        showMovieByID: state => {
             state.style = false;
             state.moviesPortion = state.moviesPortion + state.showMovie.length;
             state.showMovie = [];
@@ -53,10 +53,10 @@ const upcomingMovies = createSlice({
                 state.showMovie.push(state.movies.results[state.moviesPortion + i]);
             }
         },
-        setVisible: (state) => {
+        setVisible: state => {
             state.style = true;
         },
-        setDefaultUpcoming: (state) => {
+        setDefaultUpcoming: state => {
             state.showMovie = [];
         }
     },

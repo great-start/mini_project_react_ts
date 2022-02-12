@@ -30,3 +30,11 @@
        font-size: 16px;
        color: #8c8c8c;
 }
+
+.normal::placeholder {
+       color: red;
+}
+
+.error::placeholder {
+       color: #4e5e67;
+}

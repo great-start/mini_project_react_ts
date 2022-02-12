@@ -15,7 +15,7 @@ const switcherSlice = createSlice({
     name: 'switcherSlice',
     initialState,
     reducers: {
-        changeMode: (state) => {
+        changeMode: state => {
             if (!state.switcher) {
                 state.switcher = !state.switcher;
                 state.message = 'Night Mode';
@@ -23,9 +23,12 @@ const switcherSlice = createSlice({
                 state.switcher = !state.switcher;
                 state.message = 'Day Mode';
             }
+        },
+        setDefaultSwitch: state => {
+            state.switcher = true;
         }
     }
 });
 
-export const {changeMode} = switcherSlice.actions;
+export const {changeMode, setDefaultSwitch} = switcherSlice.actions;
 export const switcherReducer = switcherSlice.reducer;

@@ -10,7 +10,7 @@ interface IProps {
 
 export const SimpleAuthentication: FC<IProps> = ({children}) => {
 
-    const {logStatus} = useAppSelector(state => state.authReducer);
+    const {logStatus, placeholder, passCheck} = useAppSelector(state => state.authReducer);
     const dispatch = useAppDispatch();
     const input = useRef<HTMLInputElement>(null);
 
@@ -24,10 +24,12 @@ export const SimpleAuthentication: FC<IProps> = ({children}) => {
 
     if (logStatus) return children;
 
+    console.log(placeholder, passCheck);
+
     return (
         <>
             <form onSubmit={handler} className={css.form}>
-                <label><span>Password:</span> <input type="text" placeholder={'password'} ref={input}/></label>
+                <label><span>Password:</span> <input type="text" placeholder={passCheck ? placeholder : placeholder} ref={input} className={passCheck ? css.normal : css.placeholder}/></label>
                 <button className={css.logIn}>Log in</button>
                 <p>Password: 2022</p>
             </form>

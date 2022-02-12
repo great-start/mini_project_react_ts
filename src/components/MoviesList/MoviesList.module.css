@@ -26,8 +26,9 @@
 .buttons > button {
     height: 30px;
     width: 100px;
-    background: #dddddd;
+    background: #989898;
     color: black;
+    border-radius: 5px;
 }
 
 .buttons > button:hover {
@@ -36,7 +37,7 @@
     cursor: pointer;
 }
 
-.buttons > button[disabled]:hover {
+.buttons > button[disabled] {
     background: #dddddd;
     color: black;
     cursor: inherit;

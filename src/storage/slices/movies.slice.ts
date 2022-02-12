@@ -49,10 +49,10 @@ const moviesSlice = createSlice({
             state.page = action.payload.page;
             state.movies = action.payload.results;
         },
-        nextPage: (state) => {
+        nextPage: state => {
             state.page++;
         },
-        previousPage: (state) => {
+        previousPage: state => {
             state.page--;
         },
         setGenre: (state, action:PayloadAction<number>) => {
@@ -60,7 +60,7 @@ const moviesSlice = createSlice({
             state.genreID = action.payload;
             state.page = 1;
         },
-        setDefault: (state) => {
+        setDefault: state => {
             state.page = 1;
             state.genreID = 0;
         }

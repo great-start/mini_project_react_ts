@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import css from './Footer.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {LogOut, setDefaultUpcoming} from "../../storage";
+import {LogOut, setDefaultSwitch, setDefaultUpcoming} from "../../storage";
 import {useNavigate} from "react-router-dom";
 
 export const Footer:FC = () => {
@@ -14,6 +14,7 @@ export const Footer:FC = () => {
     function handler() {
         dispatch(LogOut());
         dispatch(setDefaultUpcoming());
+        dispatch(setDefaultSwitch());
         navigate('/', {replace: true});
     }
 
