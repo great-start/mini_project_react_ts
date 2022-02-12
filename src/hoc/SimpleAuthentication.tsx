@@ -27,8 +27,8 @@ export const SimpleAuthentication: FC<IProps> = ({children}) => {
     return (
         <>
             <form onSubmit={handler} className={css.form}>
-                <label>Password: <input type="text" placeholder={'password'} ref={input}/></label>
-                <button>Login</button>
+                <label><span>Password:</span> <input type="text" placeholder={'password'} ref={input}/></label>
+                <button className={css.logIn}>Log in</button>
                 <p>Password: 2022</p>
             </form>
         </>

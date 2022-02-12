@@ -5,6 +5,34 @@
     color: #dddddd;
 }
 
-.footer h3 {
-    margin-left: 100px;
+.footerForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.footerForm h3 {
+    margin-left: 150px;
+}
+
+.footerForm button {
+    margin-left: 50px;
+    border: 1px solid #8c8c8c;
+    height: 30px;
+    width: 80px;
+    border-radius: 5px;
+    background: #bdbdbd;
+    color: #0f2736;
+}
+
+.footerForm button:hover {
+    background: #d7ffd7;
+    border: none;
+}
+
+.messageLogin {
+    color: #74ff74;
+}
+
+.messageLogout {
+    color: #ff8497;
 }

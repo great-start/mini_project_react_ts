@@ -4,7 +4,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 interface ILoginInfo {
     password: string,
     logStatus: boolean,
-    message: string
+    message: string,
 }
 
 const initialState: ILoginInfo = {
@@ -23,8 +23,12 @@ const authSlice = createSlice({
                 state.message = 'You are logged in'
             }
         },
+        LogOut: (state) => {
+            state.logStatus = false;
+            state.message = 'You are not authorized'
+        }
     }
 });
 
-export const {LogIn} = authSlice.actions;
+export const {LogIn, LogOut} = authSlice.actions;
 export const authReducer = authSlice.reducer;
