@@ -11,7 +11,7 @@
 .main_day {
     display: flex;
     flex-direction: column;
-    padding: 0 50px;
+    padding: 0 50px 30px 50px;
     margin-top: 5px;
     min-height: 70vh;
 }
@@ -19,7 +19,7 @@
 .main_night {
     display: flex;
     flex-direction: column;
-    padding: 0 50px;
+    padding: 0 50px 30px 50px;
     margin-top: 5px;
     background: #3c3f41;
 }

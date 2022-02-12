@@ -7,14 +7,12 @@ interface IMoviesList {
     page: number,
     movies: IMovie[],
     genreID: number
-    error_messages?: null | string;
 }
 
 const initialState: IMoviesList = {
     page: 1,
     movies: [],
     genreID: 0,
-    error_messages: null,
 }
 
 export const getPopularMovies = createAsyncThunk(

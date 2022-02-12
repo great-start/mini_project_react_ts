@@ -9,7 +9,7 @@ import css from './MoviesList.module.css';
 
 export const MoviesList: FC = () => {
 
-    const {movies, page, error_messages, genreID} = useAppSelector(state => state.moviesReducer);
+    const {movies, page, genreID} = useAppSelector(state => state.moviesReducer);
     const {switcher} = useAppSelector(state => state.switcherReducer);
     const params = useParams();
     const dispatch = useAppDispatch();
@@ -31,7 +31,6 @@ export const MoviesList: FC = () => {
                 </div>
             </div>
             {!!movies.length && <PaginationButtons/>}
-            <p>{error_messages && error_messages}</p>
         </>
     );
 };

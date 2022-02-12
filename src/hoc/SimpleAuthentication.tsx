@@ -24,8 +24,6 @@ export const SimpleAuthentication: FC<IProps> = ({children}) => {
 
     if (logStatus) return children;
 
-    console.log(placeholder, passCheck);
-
     return (
         <>
             <form onSubmit={handler} className={css.form}>
