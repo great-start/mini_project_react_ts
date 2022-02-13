@@ -1,4 +1,4 @@
-import React, {FC, FormEvent, useRef} from 'react';
+import React, {FC, FormEvent, useEffect, useRef} from 'react';
 
 import {useAppDispatch, useAppSelector} from "../hooks";
 import {LogIn} from "../storage";
@@ -13,6 +13,10 @@ export const SimpleAuthentication: FC<IProps> = ({children}) => {
     const {logStatus, placeholder, passCheck} = useAppSelector(state => state.authReducer);
     const dispatch = useAppDispatch();
     const input = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+            dispatch(LogIn());
+    }, []);
 
     function handler(e: FormEvent) {
         e.preventDefault();
